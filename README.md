@@ -17,7 +17,8 @@ Installation
 --------------
 
 This is a regular editor plugin.
-Copy the contents of `addons/zylann.hterrain` into the same folder in your project, and activate it in your project settings.
+Copy the contents of `zylann.hterrain` into the 'addons' directory in the same folder as your project, and activate it in your projects plugin settings.
+If you are using git, type: `git submodule add https://github.com/ConnorBP/zylann.hterrain` inside your addons folder.
 
 The plugin now comes with no extra assets to stay lightweight.
 If you want to try an example scene, you can install this demo once the plugin is setup and active:
