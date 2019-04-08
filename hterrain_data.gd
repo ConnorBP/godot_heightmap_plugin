@@ -44,7 +44,7 @@ class VerticalBounds:
 
 # A map is a texture covering the terrain.
 # The usage of a map depends on its type (heightmap, normalmap, splatmap...).
-class Map:
+class TextureMap:
 	var texture
 	# Reference used in case we need the data CPU-side
 	var image
@@ -85,7 +85,7 @@ func _set_default_maps():
 		var maps = []
 		var n = _get_channel_default_count(c)
 		for i in range(n):
-			maps.append(Map.new(i))
+			maps.append(TextureMap.new(i))
 		_maps[c] = maps
 
 
@@ -548,7 +548,7 @@ func _edit_add_map(map_type):
 	while map_type >= len(_maps):
 		_maps.append([])
 	var maps = _maps[map_type]
-	var map = Map.new(_get_free_id(map_type))
+	var map = TextureMap.new(_get_free_id(map_type))
 	map.image = Image.new()
 	map.image.create(_resolution, _resolution, false, get_channel_format(map_type))
 	var index = len(maps)
@@ -903,7 +903,7 @@ func _deserialize_metadata(dict):
 			var map = maps[j]
 			var id = maps_data[j].id
 			if map == null:
-				map = Map.new(id)
+				map = TextureMap.new(id)
 				maps[j] = map
 			else:
 				map.id = id
